@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Products: readable by everyone, writable by anyone or authenticated admin
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Categories: readable by everyone, managed in admin
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Menu Items: readable by everyone for navigation, managed in admin
+    match /menu_items/{menuItemId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    
+    // Orders: create allowed for checkout, readable and updatable
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+    
+    // Coupons: readable by customers to apply, managed in admin
+    match /coupons/{couponId} {
+      allow read, write: if true;
+    }
+    
+    // Settings: readable by public (store info), updatable
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+  }
+}

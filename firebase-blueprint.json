@@ -1,0 +1,145 @@
+{
+  "entities": {
+    "products": {
+      "title": "Products",
+      "description": "Products catalog including imported perfumes, luxury bags, and skincare",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "description": { "type": "string" },
+        "specifications": { "type": "string" },
+        "stock": { "type": "number" },
+        "weightGrams": { "type": "number" },
+        "featured": { "type": "boolean" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "category", "price", "stock", "active"]
+    },
+    "categories": {
+      "title": "Categories",
+      "description": "Store product categories dynamically managed in Admin",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "image": { "type": "string" },
+        "iconUrl": { "type": "string" },
+        "order": { "type": "number" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "name", "order", "active"]
+    },
+    "menu_items": {
+      "title": "Menu Items",
+      "description": "Navigation bar menu items dynamically managed in Admin",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "type": { "type": "string", "enum": ["category", "link", "all"] },
+        "target": { "type": "string" },
+        "order": { "type": "number" },
+        "active": { "type": "boolean" },
+        "isExternal": { "type": "boolean" }
+      },
+      "required": ["id", "label", "type", "target", "order", "active"]
+    },
+    "orders": {
+      "title": "Orders",
+      "description": "Customer orders made via checkout or POS",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "shippingAddress": {
+          "type": "object",
+          "properties": {
+            "cep": { "type": "string" },
+            "street": { "type": "string" },
+            "number": { "type": "string" },
+            "complement": { "type": "string" },
+            "neighborhood": { "type": "string" },
+            "city": { "type": "string" },
+            "state": { "type": "string" }
+          }
+        },
+        "shippingOption": {
+          "type": "object",
+          "properties": {
+            "carrier": { "type": "string" },
+            "service": { "type": "string" },
+            "price": { "type": "number" },
+            "deliveryDays": { "type": "number" }
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": { "type": "string" },
+              "productName": { "type": "string" },
+              "productImage": { "type": "string" },
+              "price": { "type": "number" },
+              "quantity": { "type": "number" }
+            }
+          }
+        },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "couponCode": { "type": "string" },
+        "shippingCost": { "type": "number" },
+        "total": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "status": { "type": "string", "enum": ["pendente", "pago", "enviado", "entregue", "cancelado"] },
+        "trackingCode": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "customerPhone", "items", "total", "status", "createdAt"]
+    },
+    "coupons": {
+      "title": "Discount Coupons",
+      "description": "Store discount coupons",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "type": { "type": "string", "enum": ["percentage", "fixed"] },
+        "value": { "type": "number" },
+        "minOrderValue": { "type": "number" },
+        "expiryDate": { "type": "string" },
+        "active": { "type": "boolean" },
+        "usageLimit": { "type": "number" },
+        "usageCount": { "type": "number" }
+      },
+      "required": ["code", "type", "value", "active"]
+    },
+    "settings": {
+      "title": "Store Settings",
+      "description": "Store configuration and social links",
+      "type": "object",
+      "properties": {
+        "storeName": { "type": "string" },
+        "instagram": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "cepOrigin": { "type": "string" },
+        "infinitePayHandle": { "type": "string" },
+        "infinitePayWebhookSecret": { "type": "string" },
+        "jadlogToken": { "type": "string" },
+        "jadlogCnpj": { "type": "string" },
+        "blobToken": { "type": "string" }
+      }
+    }
+  }
+}

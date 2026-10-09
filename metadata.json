@@ -1,0 +1,6 @@
+{
+  "name": "Dream Shopping | Perfumes, Bolsas & Skincare Importados",
+  "description": "E-commerce de alto luxo especializado em Perfumes, Bolsas de grife (Michael Kors, Juicy Couture), Skincare Medicube e K-Beauty. Produtos importados 100% originais com entrega para todo o Brasil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

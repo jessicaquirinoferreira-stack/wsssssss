@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Paleta Ouro Imperial Nobre, Ébano Profundo e Marfim Quente (Fiel às Imagens 2756-2767) */
+    --main-foreground: #12110F;
+    --main-background: #FAF6EE;
+    --accent-color: #B8966B;
+    --accent-gold-light: #D5BFA0;
+    --accent-gold-bright: #E3CEAF;
+    --button-background: #12110F;
+    --button-foreground: #FAF6EE;
+    --label-background: #B8966B;
+    --label-foreground: #12110F;
+    --adbar-background: #12110F;
+    --adbar-foreground: #E3CEAF;
+    --header-background: #FAF6EE;
+    --header-foreground: #12110F;
+    --footer-background: #12110F;
+    --footer-foreground: #EADECD;
+    --border-color: #E7DBC9;
+  }
+
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background-color: #FAF6EE;
+    color: #12110F;
+  }
+
+  h1, h2, h3, .font-heading, .font-serif-luxury {
+    font-family: 'Marcellus', Georgia, serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Custom scrollbar no tom Ouro Nobre e Ébano */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5BFA0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8966B;
+}
